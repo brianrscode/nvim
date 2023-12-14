@@ -33,6 +33,8 @@ sudo apt install ripgrep
 | **\<leader>i**   |                           | Inserta ";" al final de una línea da un salto de línea           |
 | **\<leader>o**   |                           | Inserta "{" al final de la línea y da un salto de línea          |
 | **\<C-b\>**      | :NvimTreeToggle           | Muestra/oculta el árbol de archivos                              |
+| **\<leader>r**   | :RunCode                  | Ejecuta el código que haya en el archvio                         |
+| **\<leader>cf**  |                           | Formatea el código que haya en el archivo                        |
 |                  | Atajos de telescope       |                                                                  |
 | **\<leader>ff**  | find files                | Muestra archivos en el directorio actual                         |
 | **\<leader>fp**  | find plugins              | Muestra la ruta de los plugins instalados                        |
