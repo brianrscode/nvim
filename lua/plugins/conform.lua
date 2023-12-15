@@ -8,6 +8,7 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
+				java = { "ast-grep" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
@@ -20,7 +21,7 @@ return {
 				markdown = { "prettier" },
 				graphql = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "autopep8" }, -- "isort", "black"
 			},
 			format_on_save = {
 				lsp_fallback = true,
