@@ -1,10 +1,10 @@
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  -- vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-  vim.keymap.set(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	-- vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 ----------------------
@@ -37,4 +37,7 @@ map("n", "<leader>q", "<cmd>:q<CR>") -- "Espacio + q" cierra el documento
 map("n", "<leader>i", "A;<ENTER>") -- "Espacio + i" Agrega un ; al final de la línea y da un salto
 map("n", "<leader>o", "A{<ENTER>}<Esc>O") -- "Espacio + i" Agrega un { al final de la línea y da un salto
 
-map("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>")  -- Muestra/oculta el árbol de archivos
+map("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>") -- Muestra/oculta el árbol de archivos
+
+map("n", "<leader><Tab>", "<cmd>:BufferLineCycleNext<CR>") -- Cambia al buffer siguiente
+map("n", "<C-w>", "<cmd>:BufferLinePickClose<CR>") -- Cambia al buffer siguiente
