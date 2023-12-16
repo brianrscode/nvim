@@ -40,4 +40,4 @@ map("n", "<leader>o", "A{<ENTER>}<Esc>O") -- "Espacio + i" Agrega un { al final 
 map("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>") -- Muestra/oculta el árbol de archivos
 
 map("n", "<leader><Tab>", "<cmd>:BufferLineCycleNext<CR>") -- Cambia al buffer siguiente
-map("n", "<C-w>", "<cmd>:BufferLinePickClose<CR>") -- Cambia al buffer siguiente
+map("n", "<C-w>", "<cmd>:BufferLinePickClose<CR>") -- Coloca la opción de eliminar un buffer seleccionado
