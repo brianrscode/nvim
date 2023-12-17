@@ -41,3 +41,6 @@ map("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>") -- Muestra/oculta el árbol de arc
 
 map("n", "<leader><Tab>", "<cmd>:BufferLineCycleNext<CR>") -- Cambia al buffer siguiente
 map("n", "<C-w>", "<cmd>:BufferLinePickClose<CR>") -- Coloca la opción de eliminar un buffer seleccionado
+
+map("v", ">", ">gv") -- Tabula hacia la derecha
+map("v", "<", "<gv") -- Tabula hacia la izquierda
