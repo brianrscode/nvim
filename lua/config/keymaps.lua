@@ -7,6 +7,18 @@ local function map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
+function CustomActionsBasedOnFileType()
+	local filetype = vim.bo.filetype
+
+	if filetype == "python" then
+		-- "Espacio + o" Agrega : al final de la línea y da un salto
+		map("n", "<leader>o", "A:<ENTER><Esc>O")
+	else
+		-- "Espacio + o" Agrega una { al final de la línea y da un salto
+		map("n", "<leader>o", "A{<ENTER>}<Esc>O")
+	end
+end
+
 ----------------------
 ----------------------
 -- Neovim shortcuts --
@@ -35,7 +47,8 @@ map("n", "<leader>w", "<cmd>:w<CR>") -- "Espacio + w" guarda el documento
 map("n", "<leader>q", "<cmd>:q<CR>") -- "Espacio + q" cierra el documento
 
 map("n", "<leader>i", "A;<ENTER>") -- "Espacio + i" Agrega un ; al final de la línea y da un salto
-map("n", "<leader>o", "A{<ENTER>}<Esc>O") -- "Espacio + i" Agrega un { al final de la línea y da un salto
+vim.cmd([[autocmd BufEnter * lua CustomActionsBasedOnFileType()]]) -- Llama a la función cada que cambio de buffer
+-- map("n", "<leader>o", "A{<ENTER>}<Esc>O") -- "Espacio + o" Agrega un { al final de la línea y da un salto
 
 map("n", "<C-b>", "<cmd>:NvimTreeToggle<CR>") -- Muestra/oculta el árbol de archivos
 
