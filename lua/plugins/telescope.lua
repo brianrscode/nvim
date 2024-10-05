@@ -1,13 +1,13 @@
 return {
     "nvim-telescope/telescope.nvim",
     keys = {
-        {
-            "<leader>fg", -- find git files
-            function()
-                require("telescope.builtin").git_files({ show_untracked = true })
-            end,
-            desc = "Telescope Git Files",
-        },
+        -- {
+        --     "<leader>fg", -- find git files
+        --     function()
+        --         require("telescope.builtin").git_files({ show_untracked = true })
+        --     end,
+        --     desc = "Telescope Git Files",
+        -- },
         {
             "<leader>fb", -- find buffers
             function()
@@ -61,19 +61,19 @@ return {
             desc = "Telescope Find Files",
         },
         {
-            "<leader>ft", -- find tags -> para el help de neovim
+            "<leader>fh", -- find help -> para el help de neovim
             function()
                 require("telescope.builtin").help_tags()
             end,
             desc = "Telescope Help",
         },
-        {
-            "<leader>fs", -- file browser
-            function()
-                require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
-            end,
-            desc = "Telescope file browser",
-        },
+        -- {
+        --     "<leader>fs", -- file browser
+        --     function()
+        --         require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
+        --     end,
+        --     desc = "Telescope file browser",
+        -- },
     },
     -- change some options
     opts = {
