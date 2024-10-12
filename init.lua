@@ -10,6 +10,13 @@ opt.expandtab = true
 
 vim.cmd([[filetype plugin on]])
 
+vim.cmd([[
+  augroup markdownSpell
+    autocmd!
+    autocmd FileType markdown,text setlocal spell spelllang=es,en
+  augroup END
+]])
+
 -- Cargar el árbol de archivos ftplugin
 -- vim.cmd([[autocmd FileType python lua require('ftplugin.python')]])
 -- vim.cmd([[autocmd FileType sh lua require('ftplugin.sh')]])
