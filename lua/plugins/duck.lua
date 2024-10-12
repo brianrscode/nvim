@@ -5,5 +5,6 @@ return {
     --     vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
     --     vim.keymap.set('n', '<leader>da', function() require("duck").cook_all() end, {})
     -- end
+    -- require("duck").hatch("🦖", 10)
     -- 🦆 ඞ 🦀 🐈 🐎 🦖 🐤
 }
