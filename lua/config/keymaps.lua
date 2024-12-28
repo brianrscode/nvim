@@ -41,3 +41,5 @@ map("n", "<C-s-tab>", "<cmd>:BufferLineCyclePrev<CR>") -- va al buffer anterior
 map("n", "<C-w>", "<cmd>:BufferLinePickClose<CR>") -- Coloca opción eliminar buffer
 
 map("v", "<", "<gv") -- Tabula hacia la izquierda
+
+map("n", "<leader>m", "<cmd>:Huefy<CR>")
