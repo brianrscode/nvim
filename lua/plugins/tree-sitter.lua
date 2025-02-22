@@ -18,11 +18,8 @@ return {
     opts = {
         ensure_installed = {
             "python",
-            "php",
-            "css",
             "html",
             "css",
-            "java",
             "javascript",
             "bash",
             "json",
@@ -32,6 +29,8 @@ return {
             "regex",
             "lua",
             "luadoc",
+            -- "java",
+            -- "php",
         },
         highlight = {
             enable = true,
