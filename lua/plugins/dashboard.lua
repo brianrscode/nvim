@@ -20,7 +20,7 @@ return {
             ⠀⠀⠀⠈⠛⠛⠛⠛⠿⠖⠚⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
         ]]
 
-        logo = string.rep("", 8) .. logo .. "\n"
+        logo = string.rep("\n", 8) .. logo .. "\n"
 
         local opts = {
             theme = "doom",
@@ -36,10 +36,11 @@ return {
                   { action = "Telescope find_files", desc = " Find File", icon = " ", key = "f" },
                   { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
                   { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
-                  { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
+                  { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },  -- ⛧
+                  { action = "Mason", desc = " Mason", icon="✔ ", key = "m"},
                   { action = "LazyExtras", desc = " Lazy Extras", icon = " ", key = "x" },
-                  { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
-                  { action = ":checkhealth", desc = " Check Health", icon = "󰓙 ", key = "c" },
+                  { action = ":checkhealth", desc = " Check Health", icon = "󰓙 ", key = "h" },
+                  { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
                   { action = "qa", desc = " Quit", icon = " ", key = "q" },
                   -- { action = "Telescope live_grep", desc = " Find Text", icon = " ", key = "g" },
                   -- { action = [[lua LazyVim.telescope.config_files()()]], desc = " Config", icon = " ", key = "c" },
