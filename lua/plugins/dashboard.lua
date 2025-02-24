@@ -37,7 +37,7 @@ return {
                   { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
                   { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
                   { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },  -- ⛧
-                  { action = "Mason", desc = " Mason", icon="✔ ", key = "m"},
+                  { action = "Mason", desc = " Mason", icon="✓ ", key = "m"},
                   { action = "LazyExtras", desc = " Lazy Extras", icon = " ", key = "x" },
                   { action = ":checkhealth", desc = " Check Health", icon = "󰓙 ", key = "h" },
                   { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },

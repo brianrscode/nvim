@@ -14,20 +14,6 @@ return {
 
         local lspconfig = require("lspconfig")
 
-        -- Configuración de los servidores LSP
-        lspconfig.pyright.setup({})
-        lspconfig.django_template.setup({})
-        lspconfig.emmet_ls.setup({}) -- Autocompletado para HTML y CSS
-        lspconfig.tsserver.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.marksman.setup({})
-        lspconfig.taplo.setup({})
-        -- lspconfig.htmx.setup({})
-
-        -- lspconfig.htmx.setup({
-        --     filetypes = { "django-html", "htmldjango", "html" },
-        -- })
-
         local mason = require("mason")
         mason.setup({
             ui = {
@@ -67,9 +53,23 @@ return {
             max_concurrent_installers = 10,
         }
 
+        -- Configuración de los servidores LSP
         lspconfig.djlsp.setup({
             cmd = { "djlsp" },
+            filetypes = { "django-html", "htmldjango" },
+            root_dir = { "manage.py" }, -- pyproject.toml .git --Raíz -> Se activa solo en proyectos Django
         })
+        lspconfig.pyright.setup({})
+        lspconfig.emmet_ls.setup({}) -- Autocompletado para HTML y CSS
+        lspconfig.tsserver.setup({})
+        lspconfig.lua_ls.setup({})
+        lspconfig.marksman.setup({})
+        lspconfig.taplo.setup({})
+        -- lspconfig.htmx.setup({})
+
+        -- lspconfig.htmx.setup({
+        --     filetypes = { "django-html", "htmldjango", "html" },
+        -- })
 
         mason.setup(options)
         vim.api.nvim_create_user_command("MasonInstallAll", function()
