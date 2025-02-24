@@ -43,3 +43,6 @@ map("n", "<C-w>", "<cmd>:BufferLinePickClose<CR>") -- Coloca opción eliminar bu
 map("v", "<", "<gv") -- Tabula hacia la izquierda
 
 map("n", "<leader>m", "<cmd>:Huefy<CR>")
+
+map("n", "<leader>o", "A:<ENTER>") -- <Esc>O
+map("n", "<leader>i", "A,<ENTER>")

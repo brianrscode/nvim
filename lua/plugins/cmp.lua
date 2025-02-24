@@ -15,6 +15,14 @@ return {
         local luasnip = require("luasnip")
         local cmp = require("cmp")
 
+        opts.sources = {
+            { name = "codeium" }, -- Codeium
+            { name = "nvim_lsp" }, -- LSPs (por ejemplo: pyright, ruff, etc.)
+            { name = "path" }, -- Rutas de archivo
+            { name = "luasnip" }, -- Snippets
+            { name = "buffer" },
+        }
+
         opts.mapping = vim.tbl_extend("force", opts.mapping, {
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then

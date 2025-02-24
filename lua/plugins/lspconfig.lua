@@ -10,14 +10,18 @@ return {
             float = { border = "rounded" },
         })
 
-        vim.keymap.set("n", "<leader>ir", "<cmd>LspRestart<CR>")
+        vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<CR>")
 
         local lspconfig = require("lspconfig")
 
-        -- Configuración de los servidores
+        -- Configuración de los servidores LSP
         lspconfig.pyright.setup({})
-        lspconfig.tsserver.setup({})
+        lspconfig.django_template.setup({})
         lspconfig.emmet_ls.setup({}) -- Autocompletado para HTML y CSS
+        lspconfig.tsserver.setup({})
+        lspconfig.lua_ls.setup({})
+        lspconfig.marksman.setup({})
+        lspconfig.taplo.setup({})
         -- lspconfig.htmx.setup({})
 
         -- lspconfig.htmx.setup({
@@ -40,6 +44,8 @@ return {
                 "pyright", -- LSP -> Autocompletado, detección de errores y tipado (pylance)
                 "debugpy", -- DAP (Debug Adapter Protocol) -> Debugging python
                 "ruff", -- Linter -> formateo de código y detección de errores de estilo
+                "python-lsp-server",
+                "ruff-lsp",
                 -- "isort", -- Linter -> Ordenamiento de imports
                 "django-template-lsp", -- LSP para plantillas Django | Autocompletado y detección de errores
                 "djlint", -- Linter -> Formateado para templates django
