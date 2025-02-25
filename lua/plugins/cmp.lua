@@ -1,4 +1,3 @@
--- then: setup supertab in cmp
 return {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -16,7 +15,7 @@ return {
         local cmp = require("cmp")
 
         opts.sources = {
-            { name = "codeium" }, -- Codeium
+            -- { name = "codeium", priority = 1000 }, -- Codeium
             { name = "nvim_lsp" }, -- LSPs (por ejemplo: pyright, ruff, etc.)
             { name = "path" }, -- Rutas de archivo
             { name = "luasnip" }, -- Snippets
