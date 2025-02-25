@@ -1,7 +1,19 @@
 return {
     "hrsh7th/nvim-cmp",
+    enabled = true,
+    even = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-emoji",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-cmdline",
+        "saadparwaiz1/cmp_luasnip",
+        "onsails/lspkind-nvim",
+        { "nvim-snippets", enabled = true },
+        { "L3MON4D3/LuaSnip", version = "v1.*" },
+        "windwp/nvim-autopairs",
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -26,8 +38,8 @@ return {
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                    -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-                    -- this way you will only jump inside the snippet region
+                -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                -- this way you will only jump inside the snippet region
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
                 elseif has_words_before() then
