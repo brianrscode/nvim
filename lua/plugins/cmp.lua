@@ -26,8 +26,8 @@ return {
         local luasnip = require("luasnip")
         local cmp = require("cmp")
 
+        -- { name = "codeium", priority = 1000 }, -- Codeium
         opts.sources = {
-            -- { name = "codeium", priority = 1000 }, -- Codeium
             { name = "nvim_lsp" }, -- LSPs (por ejemplo: pyright, ruff, etc.)
             { name = "path" }, -- Rutas de archivo
             { name = "luasnip" }, -- Snippets
