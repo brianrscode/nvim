@@ -47,13 +47,20 @@ return {
                 end,
             })
 
-            vim.cmd([[colorscheme catppuccin-mocha]])
-            vim.cmd([[colorscheme catppuccin-mocha]]) -- enfocado, catppuccin, ayu-dark, ayu-dark, gruvbox, dracula
+            -- vim.cmd([[colorscheme catppuccin-mocha]])
+            -- vim.cmd([[colorscheme catppuccin-mocha]]) -- enfocado, catppuccin, ayu-dark, ayu-dark, gruvbox, dracula
         end,
     },
     { "Shatur/neovim-ayu", priority = 1001 },
     { "folke/tokyonight.nvim", priority = 1003 },
+    { "lunarvim/horizon.nvim", priority = 1004 },
 
     lazy = false, -- Pregunta si se tiene que cargar apenas inicia o no, True lo carga cuando se necesita
     priority = 1000, -- Entre más alto sea el número más prioridad va a tener
+    {
+        "LazyVim/LazyVim",
+        opts = {
+            colorscheme = "catppuccin-mocha",
+        },
+    },
 }

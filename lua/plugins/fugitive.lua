@@ -22,6 +22,17 @@ return {
             desc = "Git commit: Agrega commit al repo actual.",
         },
         {
+            "<leader>gC",
+            function()
+                vim.ui.input({ prompt = "Nombre de la rama:" }, function(input)
+                    if input then
+                        vim.cmd("Git checkout -b " .. vim.fn.shellescape(input))
+                    end
+                end)
+            end,
+            desc = "Git checkout -b: Nueva rama y cambio a ella",
+        },
+        {
             "<leader>gr",
             function()
                 vim.ui.input({ prompt = "URL del repo remoto:" }, function(input)
