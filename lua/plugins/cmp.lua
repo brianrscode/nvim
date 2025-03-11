@@ -1,8 +1,9 @@
 return {
     "hrsh7th/nvim-cmp",
     enabled = true,
-    even = "InsertEnter",
+    event = "InsertEnter", -- corregido el error de "even"
     dependencies = {
+        "nvim-tree/nvim-web-devicons", -- Agregado para iconos en el autocompletado
         "hrsh7th/cmp-emoji",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
@@ -25,36 +26,36 @@ return {
 
         local luasnip = require("luasnip")
         local cmp = require("cmp")
+        local lspkind = require("lspkind")
 
-        -- { name = "codeium", priority = 1000 }, -- Codeium
         opts.sources = {
-            { name = "nvim_lsp" }, -- LSPs (por ejemplo: pyright, ruff, etc.)
-            { name = "path" }, -- Rutas de archivo
-            { name = "luasnip" }, -- Snippets
+            -- { name = "codeium", priority = 1000 },
+            { name = "nvim_lsp" },
+            { name = "path" },
+            { name = "luasnip" },
             { name = "buffer" },
         }
-        cmp.setup({
-            formatting = {
-                format = function(entry, vim_item)
-                    if vim.tbl_contains({ "path" }, entry.source.name) then
-                        local icon, hl_group = require("nvim-web-devicons").get_icon(entry:get_completion_item().label)
-                        if icon then
-                            vim_item.kind = icon
-                            vim_item.kind_hl_group = hl_group
-                            return vim_item
-                        end
-                    end
-                    return require("lspkind").cmp_format({ with_text = false })(entry, vim_item)
-                end,
-            },
-        })
+
+        opts.formatting = {
+            expandable_indicator = true,
+            fields = { "abbr", "kind", "menu" },
+            format = lspkind.cmp_format({
+                mode = "symbol",
+                maxwidth = 50,
+                symbol_map = { Codeium = "" },
+                menu = {
+                    buffer = "[Buffer]",
+                    nvim_lsp = "[LSP]",
+                    luasnip = "[Snippet]",
+                    path = "[Path]",
+                },
+            }),
+        }
 
         opts.mapping = vim.tbl_extend("force", opts.mapping, {
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-                -- this way you will only jump inside the snippet region
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
                 elseif has_words_before() then
