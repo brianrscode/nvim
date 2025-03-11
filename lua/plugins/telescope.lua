@@ -1,3 +1,9 @@
+local function is_windows()
+    return package.config:sub(1, 1) == "\\"
+end
+
+local plugin_path = is_windows() and "~/AppData/Local/nvim/lua/plugins/" or "~/.config/nvim/lua/plugins"
+
 return {
     "nvim-telescope/telescope.nvim",
     keys = {
@@ -34,7 +40,9 @@ return {
             function()
                 require("telescope.builtin").find_files({
                     prompt_title = "Plugins instalados", -- Título de la barra de busqueda
-                    cwd = "~/.config/nvim/lua/plugins", -- directorio sobre el que buscará (current work directory)
+                    -- -- cwd = "~/.config/nvim/lua/plugins", -- directorio sobre el que buscará (current work directory)
+                    -- cwd = "~/AppData/Local/nvim/lua/plugins/",
+                    cwd = plugin_path,
                     attach_mappings = function(_, map)
                         local actions = require("telescope.actions")
                         local action_state = require("telescope.actions.state")
@@ -44,7 +52,9 @@ return {
                             function(prompt_bufnr) -- en modo insertar si presiono <c-y> lo que haya escrito queda como nuevo plugin
                                 local new_plugin = action_state.get_current_line()
                                 actions.close(prompt_bufnr)
-                                vim.cmd(string.format("edit ~/.config/nvim/lua/plugins/%s.lua", new_plugin)) -- crea el nuevo plugin
+                                -- vim.cmd(string.format("edit ~/.config/nvim/lua/plugins/%s.lua", new_plugin)) -- crea el nuevo plugin
+                                -- vim.cmd(string.format("edit ~/AppData/Local/nvim/lua/plugins/%s.lua", new_plugin)) -- crea el nuevo plugin
+                                vim.cmd(string.format("edit %s%s.lua", plugin_path, new_plugin))
                             end
                         )
                         return true

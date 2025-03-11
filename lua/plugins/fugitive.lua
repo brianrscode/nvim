@@ -20,6 +20,8 @@ return {
                 end)
             end,
             desc = "Git commit: Agrega commit al repo actual.",
+            noremap = true,
+            silent = true,
         },
         {
             "<leader>gC",
