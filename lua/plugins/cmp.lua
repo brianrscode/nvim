@@ -1,20 +1,16 @@
 return {
+    -- customize nvim-cmp configs
+    -- Use <TAB> for completion and snippets (supertab)
+    -- first: disable default <TAB> and <S-TAB> behavior in LuaSnip
+    "L3MON4D3/LuaSnip",
+    keys = function()
+        return {}
+    end,
+    -- then: setup supertab in cmp
     "hrsh7th/nvim-cmp",
-    enabled = true,
-    event = "InsertEnter", -- corregido el error de "even"
     dependencies = {
-        "nvim-tree/nvim-web-devicons", -- Agregado para iconos en el autocompletado
         "hrsh7th/cmp-emoji",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-cmdline",
-        "saadparwaiz1/cmp_luasnip",
         "onsails/lspkind-nvim",
-        { "nvim-snippets", enabled = true },
-        { "L3MON4D3/LuaSnip", version = "v1.*" },
-        "windwp/nvim-autopairs",
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -26,38 +22,38 @@ return {
 
         local luasnip = require("luasnip")
         local cmp = require("cmp")
-        local lspkind = require("lspkind")
 
         opts.sources = {
-            -- { name = "codeium", priority = 1000 },
-            { name = "nvim_lsp" },
-            { name = "path" },
-            { name = "luasnip" },
+            { name = "nvim_lsp" }, -- LSPs (por ejemplo: pyright, ruff, etc.)
+            { name = "path" }, -- Rutas de archivo
+            { name = "luasnip" }, -- Snippets
             { name = "buffer" },
         }
 
-        opts.formatting = {
-            expandable_indicator = true,
-            fields = { "abbr", "kind", "menu" },
-            format = lspkind.cmp_format({
-                mode = "symbol",
-                maxwidth = 50,
-                symbol_map = { Codeium = "" },
-                menu = {
-                    buffer = "[Buffer]",
-                    nvim_lsp = "[LSP]",
-                    luasnip = "[Snippet]",
-                    path = "[Path]",
-                },
-            }),
-        }
+        opts.setup({
+            formatting = {
+                expandable_indicator = true,
+                fields = { "abbr", "kind", "menu" },
+                format = require("lspkind").cmp_format({
+                    mode = "symbol",
+                    maxwidth = 50,
+                    -- symbol_map = { Codeium = "" },
+                    menu = {
+                        buffer = "[Buffer]",
+                        nvim_lsp = "[LSP]",
+                        luasnip = "[Snippet]",
+                        path = "[Path]",
+                    },
+                }),
+            },
+        })
 
         opts.mapping = vim.tbl_extend("force", opts.mapping, {
             ["<Tab>"] = cmp.mapping(function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item()
-                elseif luasnip.expand_or_jumpable() then
+                if luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
+                elseif cmp.visible() then
+                    cmp.confirm({ select = false })
                 elseif has_words_before() then
                     cmp.complete()
                 else
