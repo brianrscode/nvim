@@ -8,6 +8,7 @@ return {
     end,
     -- then: setup supertab in cmp
     "hrsh7th/nvim-cmp",
+    enabled = true,
     dependencies = {
         "hrsh7th/cmp-emoji",
         "onsails/lspkind-nvim",

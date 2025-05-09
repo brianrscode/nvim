@@ -32,9 +32,6 @@ map("n", "<C-k>", "10<C-y>") -- Sube 10 líneas
 map("n", "<leader>w", "<cmd>:w<CR>") -- "Espacio + w" guarda el documento
 map("n", "<leader>q", "<cmd>:q<CR>") -- "Espacio + q" cierra el documento
 
----------- NEOTREE ----------
-map("n", "<C-b>", "<cmd>:Neotree toggle<CR>") -- Muestra/oculta los archivos
-
 ---------- ÁROL DE ARCHIVOS ----------
 map("n", "<C-tab>", "<cmd>:BufferLineCycleNext<CR>") -- va al buffer siguiente
 map("n", "<C-s-tab>", "<cmd>:BufferLineCyclePrev<CR>") -- va al buffer anterior
