@@ -20,7 +20,7 @@ return {
         keys = {
             { icon = "📄 ", key = "n", desc = "New File", action = ":ene | startinsert" },
             {
-                icon = "⚙️  ",
+                icon = "🧪 ", --🚀
                 key = "c",
                 desc = "Config",
                 action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
@@ -28,7 +28,7 @@ return {
             { icon = "🔎 ", key = "l", desc = "Lazy", action = ":Lazy" }, -- ⛧  󰒲
             { icon = "✅ ", key = "m", desc = "Mason", action = ":Mason" }, -- ✓
             { icon = "📦 ", key = "x", desc = "Lazy extras", action = ":LazyExtras" }, -- 
-            { icon = "❣️  ", key = "h", desc = "Checkhealth", action = ":checkhealth" }, -- 󰓙 🩺 🩻
+            { icon = "🩺  ", key = "h", desc = "Checkhealth", action = ":checkhealth" }, -- 󰓙 🩺 🩻 🖤
             { icon = "🍉 ", key = "s", desc = "Restore session", action = 'lua require("persistence").load()' },
             { icon = "💀 ", key = "q", desc = "Quit", action = ":qa" }, --  ☠️
         },
