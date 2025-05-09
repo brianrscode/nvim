@@ -5,18 +5,10 @@ return {
 
         code_runner.setup({
             filetype = {
-                java = {
-                    "cd $dir &&",
-                    "javac $fileName &&",
-                    "java $fileNameWithoutExt",
-                },
                 python = "python3 -u",
-                typescript = "deno run",
-                rust = {
-                    "cd $dir &&",
-                    "rustc $fileName &&",
-                    "$dir/$fileNameWithoutExt",
-                },
+                -- Ejecutar programa de Django
+                django = "python3 manage.py runserver",
+                django_test = "python3 manage.py test",
             },
         })
     end,

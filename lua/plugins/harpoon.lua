@@ -6,8 +6,8 @@ return {
     },
     config = true,
     keys = {
-        { "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Marca" },
-        { "<C-e>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Muestra marcas" },
+        { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Agrega marca" },
+        { "<leader>hm", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Muestra marcas" },
 
         { "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Siguiente marca" },
         { "<leader>hp", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Anterior marca" },

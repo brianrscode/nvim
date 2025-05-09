@@ -24,6 +24,7 @@ return {
         local cmp = require("cmp")
 
         opts.sources = {
+            { name = "codeium" },
             { name = "nvim_lsp" }, -- LSPs (por ejemplo: pyright, ruff, etc.)
             { name = "path" }, -- Rutas de archivo
             { name = "luasnip" }, -- Snippets
@@ -37,7 +38,7 @@ return {
                 format = require("lspkind").cmp_format({
                     mode = "symbol",
                     maxwidth = 50,
-                    -- symbol_map = { Codeium = "" },
+                    symbol_map = { Codeium = "🧪" },
                     menu = {
                         buffer = "[Buffer]",
                         nvim_lsp = "[LSP]",
@@ -48,6 +49,7 @@ return {
             },
         })
 
+        -- Esta funcion es para que cuando se presione <Tab> se complete el snippet o el siguiente item de la lista
         opts.mapping = vim.tbl_extend("force", opts.mapping, {
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if luasnip.expand_or_jumpable() then
