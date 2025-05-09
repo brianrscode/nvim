@@ -6,6 +6,7 @@ local plugin_path = is_windows() and "~/AppData/Local/nvim/lua/plugins/" or "~/.
 
 return {
     "nvim-telescope/telescope.nvim",
+    enabled = false,
     keys = {
         -- {
         --     "<leader>fg", -- find git files
