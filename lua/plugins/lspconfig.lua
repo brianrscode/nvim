@@ -2,6 +2,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         "williamboman/mason.nvim",
+        "hrsh7th/cmp-nvim-lsp",
     },
     event = "VeryLazy", -- Retrasa la carga del plugin hasta que Neovim está casi completamente cargado
 
@@ -11,8 +12,6 @@ return {
         })
 
         vim.keymap.set("n", "<leader>rl", "<cmd>LspRestart<CR>")
-
-        local lspconfig = require("lspconfig")
 
         local mason = require("mason")
         mason.setup({
@@ -54,13 +53,30 @@ return {
         }
 
         -- Configuración de los servidores LSP
+        local lspconfig = require("lspconfig")
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local capabilities = cmp_nvim_lsp.default_capabilities()
         lspconfig.djlsp.setup({
             cmd = { "djlsp" },
             filetypes = { "django-html", "htmldjango" },
             root_dir = { "manage.py" }, -- pyproject.toml .git --Raíz -> Se activa solo en proyectos Django
         })
-        lspconfig.pyright.setup({})
-        lspconfig.emmet_ls.setup({}) -- Autocompletado para HTML y CSS
+        lspconfig.pyright.setup({
+            filetypes = "python",
+        })
+        lspconfig.emmet_ls.setup({
+            capabilities = capabilities,
+            filetypes = {
+                "html",
+                "typescriptreact",
+                "javascriptreact",
+                "css",
+                "sass",
+                "scss",
+                "less",
+                "svelte",
+            },
+        }) -- Autocompletado para HTML y CSS
         lspconfig.tsserver.setup({})
         lspconfig.lua_ls.setup({})
         lspconfig.marksman.setup({})
