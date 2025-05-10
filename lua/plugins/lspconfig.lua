@@ -52,7 +52,7 @@ return {
             max_concurrent_installers = 10,
         }
 
-        -- Configuración de los servidores LSP
+        -- -------------------------------------------------Configuración de los servidores LSP
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -63,6 +63,9 @@ return {
         })
         lspconfig.pyright.setup({
             filetypes = "python",
+        })
+        lspconfig.djlsp.setup({
+            filetypes = { "html", "htmldjango" },
         })
         lspconfig.emmet_ls.setup({
             capabilities = capabilities,
