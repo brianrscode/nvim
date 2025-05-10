@@ -16,7 +16,7 @@
             <img src="imgs/ejemplo2.png" width=800>
         </td>
         <td>
-            <img src="imgs/harpoons.png" width=800>
+            <img src="imgs/ejemplo3.png" width=800>
         </td>
     </tr>
 </table>

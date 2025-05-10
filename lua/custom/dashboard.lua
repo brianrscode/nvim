@@ -39,7 +39,6 @@ return {
         { section = "keys", gap = 1, padding = 1 },
 
         -- PANE 2
-
         {
             pane = 2,
             icon = " ",
