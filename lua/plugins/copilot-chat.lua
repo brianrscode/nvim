@@ -31,7 +31,7 @@ return {
         opts = {
             prompts = prompts,
             system_prompt = "Este GPT es un clon del usuario, un arquitecto líder backend especializado en Python, Django y Django REST Framework, con experiencia en arquitectura limpia, arquitectura hexagonal y separación de lógica en aplicaciones escalables. Tiene un enfoque técnico pero práctico, con explicaciones claras y aplicables, siempre con ejemplos útiles para desarrolladores con conocimientos intermedios y avanzados.\n\nHabla con un tono profesional pero cercano, relajado y con un toque de humor inteligente. Evita formalidades excesivas y usa un lenguaje directo, técnico cuando es necesario, pero accesible. Su estilo es mexicano, sin caer en clichés, y utiliza expresiones como 'qué onda', 'órale', '¡aguas!', 'chido', 'la neta' según el contexto.\n\nSus principales áreas de conocimiento incluyen:\n- Desarrollo backend con Django templates y Django REST Framework para crear API's escalables.\n- Arquitectura de software con enfoque en Clean Architecture y Hexagonal Architecure\n- Implementación de buenas prácticas en Pythono, testing unitario y end-to-end.\n- Loco por la modularización, los principios SOLID y uso de design patterns de todo tipo (creacionales, estructurales y de comportamiento)\n- Herramientas de productividad como LazyVim, bash script.\n- Mentoría y enseñanza de conceptos avanzados de forma clara y efectiva.\n\nA la hora de explicar un concepto técnico:\n1. Explica el problema que el usuario enfrenta.\n2. Propone una solución clara y directa, con ejemplos si aplica.\n3. Menciona herramientas o recursos que pueden ayudar.\n\nSi el tema es complejo, usa analogías prácticas, especialmente relacionadas con construcción y arquitectura. Si menciona una herramienta o concepto, explica su utilidad y cómo aplicarlo sin redundancias.\n\nPuede hablar sobre la importancia de la introspección, liderazgo, y cómo mantenerse actualizado en tecnología mientras se experimenta con nuevas herramientas. Su estilo de comunicación es directo, pragmático y sin rodeos, pero siempre accesible y ameno.",
-            model = "claude-3.5-sonnet",
+            -- model = "claude-3.5-sonnet",
             answer_header = "⛧  Astaroth ⛧ ",
             auto_insert_mode = true,
             window = {
@@ -108,18 +108,64 @@ return {
     -- Blink integration
     {
         "saghen/blink.cmp",
+        dependencies = {
+            {
+                "giuxtaposition/blink-cmp-copilot",
+            },
+        },
         optional = true,
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
             sources = {
                 providers = {
-                    path = {
-                        -- Path sources triggered by "/" interfere with CopilotChat commands
-                        enabled = function()
-                            return vim.bo.filetype ~= "copilot-chat"
-                        end,
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-cmp-copilot",
+                        score_offset = 100,
+                        async = true,
                     },
+                    -- path = {
+                    --     -- Path sources triggered by "/" interfere with CopilotChat commands
+                    --     enabled = function()
+                    --         return vim.bo.filetype ~= "copilot-chat"
+                    --     end,
+                    -- },
+                },
+            },
+            appearance = {
+                kind_icons = {
+                    Copilot = "",
+                    Text = "󰉿",
+                    Method = "󰊕",
+                    Function = "󰊕",
+                    Constructor = "󰒓",
+
+                    Field = "󰜢",
+                    Variable = "󰆦",
+                    Property = "󰖷",
+
+                    Class = "󱡠",
+                    Interface = "󱡠",
+                    Struct = "󱡠",
+                    Module = "󰅩",
+
+                    Unit = "󰪚",
+                    Value = "󰦨",
+                    Enum = "󰦨",
+                    EnumMember = "󰦨",
+
+                    Keyword = "󰻾",
+                    Constant = "󰏿",
+
+                    Snippet = "󱄽",
+                    Color = "󰏘",
+                    File = "󰈔",
+                    Reference = "󰬲",
+                    Folder = "󰉋",
+                    Event = "󱐋",
+                    Operator = "󰪚",
+                    TypeParameter = "󰬛",
                 },
             },
         },

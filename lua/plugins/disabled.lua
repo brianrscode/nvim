@@ -16,11 +16,11 @@ return {
     },
     {
         "CopilotC-Nvim/CopilotChat.nvim",
-        enabled = false,
+        enabled = true,
     },
     {
         "NickvanDyke/opencode.nvim",
-        enabled = true,
+        enabled = false,
     },
     {
         "olimorris/codecompanion.nvim",
