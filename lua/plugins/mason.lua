@@ -10,15 +10,14 @@ return {
         "mason-org/mason-lspconfig.nvim",
         dependencies = { "mason-org/mason.nvim" },
         opts = {
-            -- LSP servers to ensure are installed. Edit this list as needed.
+            -- LSP servers only.
             ensure_installed = {
-                "stylua", -- Lua
-                "shellcheck", -- Shell scripts
-                "shfmt", -- Shell scripts
                 "pyright", -- Python
+                "ruff", -- Python lint/analysis server
                 "html", -- HTML
                 "cssls", -- CSS
                 "jsonls", -- JSON
+                "lua_ls", -- Lua
             },
         },
     },
@@ -27,12 +26,13 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         dependencies = { "mason-org/mason.nvim" },
         opts = {
-            -- Tools (formatters/linters) to ensure are installed. Edit as needed.
+            -- External tools (formatters/linters/debuggers).
             ensure_installed = {
-                -- "black", -- Python formatter
-                -- "isort", -- import sorter for Python
+                "stylua", -- Lua formatter
+                "shellcheck", -- Shell linter
+                "shfmt", -- Shell formatter
                 "ruff", -- linter / formatter for Python
-                -- "flake8", -- linter (optional if using ruff)
+                "debugpy", -- Python debugger
                 "djlint", -- Django template linter/formatter
                 "prettier", -- general formatter for HTML/CSS/JS
             },

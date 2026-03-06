@@ -33,9 +33,13 @@ map("n", "<leader>w", "<cmd>:w<CR>") -- "Espacio + w" guarda el documento
 map("n", "<leader>q", "<cmd>:q<CR>") -- "Espacio + q" cierra el documento
 
 ---------- ÁROL DE ARCHIVOS ----------
-map("n", "<C-tab>", "<cmd>:BufferLineCycleNext<CR>") -- va al buffer siguiente
-map("n", "<C-s-tab>", "<cmd>:BufferLineCyclePrev<CR>") -- va al buffer anterior
-map("n", "<C-w>", "<cmd>:BufferLinePickClose<CR>") -- Coloca opción eliminar buffer
+map("n", "<C-tab>", "<cmd>:bnext<CR>") -- va al buffer siguiente
+map("n", "<C-s-tab>", "<cmd>:bprevious<CR>") -- va al buffer anterior
+map("n", "<leader>bd", "<cmd>:bdelete<CR>") -- elimina buffer actual
+
+---------- PYTHON / PYTEST ----------
+map("n", "<leader>tf", "<cmd>term pytest % -q<CR>") -- test del archivo actual
+map("n", "<leader>ta", "<cmd>term pytest -q<CR>") -- test de toda la suite
 
 map("v", "<", "<gv") -- Tabula hacia la izquierda
 
