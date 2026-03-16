@@ -6,7 +6,10 @@ return {
         "akinsho/bufferline.nvim",
         enabled = false, -- Disable this plugin
     },
-
+    {
+        "xiyaowong/transparent.nvim",
+        enabled = true,
+    },
     {
         -- Plugin para mejorar la experiencia de edición en Neovim
         -- URL: https://github.com/yetone/avante.nvim
