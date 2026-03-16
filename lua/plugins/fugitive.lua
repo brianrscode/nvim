@@ -36,9 +36,8 @@ return {
         {
             "<leader>gp",
             function()
-                git_cmd("push origin", {
-                    prompt = "Nombre de la rama a pushear:",
-                    notify = "Cambios pusheados a la rama ",
+                git_cmd("push -u origin HEAD", {
+                    notify = "Cambios pusheados a la rama " .. vim.fn.system("git branch --show-current"),
                 })
             end,
             desc = "Git push: Manda cambios al repo remoto.",
