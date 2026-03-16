@@ -18,6 +18,7 @@ return {
             ⠀⠀⠀⠈⠛⠛⠛⠛⠿⠖⠚⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
          ]],
         keys = {
+            { icon = " ", key = "o", desc = "OpenCode", action = ":lua require('opencode').toggle()" },
             { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
             {
                 icon = " ", --🚀
