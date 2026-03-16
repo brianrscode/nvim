@@ -64,6 +64,20 @@ return {
             ttl = 5 * 60,
             indent = 3,
         },
+        {
+            pane = 2,
+            icon = " ",
+            title = "Git Log",
+            section = "terminal",
+            enabled = function()
+                return Snacks.git.get_root() ~= nil
+            end,
+            cmd = "git log --graph --decorate --all --oneline",
+            height = 15,
+            padding = 1,
+            ttl = 5 * 60,
+            indent = 3,
+        },
         { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
 
         { section = "startup" },
