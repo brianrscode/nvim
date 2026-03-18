@@ -5,10 +5,21 @@ return {
     keys = {
         { "<leader>ve", "<cmd>VenvSelect<cr>", desc = "Selecciona un entorno virtual" },
     },
-    opts = { -- this can be an empty lua table - just showing below for clarity.
+    opts = {
         options = {
             picker = "snacks",
-        }, -- if you add plugin options, they go here.
-        search = {}, -- if you add your own searches, they go here.
+            notify_user_on_venv_activation = true,
+            log_level = "NONE",
+            on_venv_activate_callback = function()
+                local ok, venv_selector = pcall(require, "venv-selector")
+                if ok and type(venv_selector.restart_lsp_servers) == "function" then
+                    venv_selector.restart_lsp_servers()
+                    return
+                end
+
+                vim.cmd("LspRestart")
+            end,
+        },
+        search = {},
     },
 }

@@ -17,7 +17,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.shiftwidth = 4
         vim.opt_local.softtabstop = 4
         vim.opt_local.expandtab = true
-        pcall(vim.cmd, "silent! VenvSelectCached")
     end,
 })
 
@@ -27,4 +26,3 @@ vim.cmd([[
     autocmd FileType markdown,text setlocal spell spelllang=es,en
   augroup END
 ]])
-
