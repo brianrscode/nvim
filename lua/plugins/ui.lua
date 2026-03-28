@@ -124,6 +124,18 @@ return {
                         -- icon = "󱙧", -- Set the icon for the mode
                     },
                 },
+                lualine_x = {
+                    function()
+                        local ok, comp = pcall(require, "venv-selector.statusline.lualine")
+                        if not ok then
+                            return ""
+                        end
+                        return comp.render()
+                    end,
+                    "encoding",
+                    "fileformat",
+                    "filetype",
+                },
             },
             extensions = {
                 "quickfix",

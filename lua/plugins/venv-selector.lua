@@ -19,6 +19,18 @@ return {
 
                 vim.cmd("LspRestart")
             end,
+
+            statusline_func = {
+                lualine = function()
+                    local venv_path = require("venv-selector").venv()
+                    if not venv_path then
+                        return ""
+                    end
+                    local venv_name = vim.fn.fnamemodify(venv_path, ":t")
+                    -- return "🐍" .. venv_name
+                    return "󰌠" .. venv_name
+                end,
+            },
         },
         search = {},
     },
