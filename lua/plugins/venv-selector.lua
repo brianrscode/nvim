@@ -27,8 +27,10 @@ return {
                         return ""
                     end
                     local venv_name = vim.fn.fnamemodify(venv_path, ":t")
+                    local icon, _ = require("mini.icons").get("filetype", "python")
                     -- return "🐍" .. venv_name
-                    return "󰌠" .. venv_name
+                    -- return "󰌠" .. venv_name
+                    return icon .. " " .. venv_name
                 end,
             },
         },

@@ -121,7 +121,7 @@ return {
                 lualine_a = {
                     {
                         "mode", -- Display the current mode
-                        -- icon = "󱙧", -- Set the icon for the mode
+                        icon = "", -- Set the icon for the mode
                     },
                 },
                 lualine_x = {
@@ -132,8 +132,8 @@ return {
                         end
                         return comp.render()
                     end,
-                    "encoding",
-                    "fileformat",
+                    -- "encoding",
+                    -- "fileformat",
                     "filetype",
                 },
             },
