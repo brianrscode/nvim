@@ -11,6 +11,7 @@ end
 
 local lspconfig = safe_require("lspconfig")
 local mason_lspconfig = safe_require("mason-lspconfig")
+local format_augroup = vim.api.nvim_create_augroup("UserLspFormatOnSave", { clear = false })
 
 local capabilities = vim.tbl_extend(
     "force",
@@ -37,6 +38,10 @@ if mason_lspconfig and lspconfig then
     mason_lspconfig.setup_handlers({
         -- default handler for all servers
         function(server_name)
+            if not lspconfig[server_name] then
+                return
+            end
+
             lspconfig[server_name].setup({
                 capabilities = capabilities,
             })
@@ -70,8 +75,9 @@ if null_ls then
         },
         on_attach = function(client, bufnr)
             if client.supports_method("textDocument/formatting") then
-                vim.api.nvim_clear_autocmds({ group = 0, buffer = bufnr })
+                vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
                 vim.api.nvim_create_autocmd("BufWritePre", {
+                    group = format_augroup,
                     buffer = bufnr,
                     callback = function()
                         vim.lsp.buf.format({ bufnr = bufnr })

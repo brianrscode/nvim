@@ -26,3 +26,15 @@ vim.cmd([[
     autocmd FileType markdown,text setlocal spell spelllang=es,en
   augroup END
 ]])
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    once = true,
+    callback = function()
+        local ok_lazy, lazy = pcall(require, "lazy")
+        if ok_lazy then
+            lazy.load({ plugins = { "nvim-lspconfig", "mason-lspconfig.nvim" } })
+        end
+        pcall(require, "config.lsp")
+    end,
+})
