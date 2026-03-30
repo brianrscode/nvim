@@ -3,7 +3,6 @@ local function map(mode, lhs, rhs, opts)
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
@@ -35,7 +34,6 @@ map("n", "<leader>q", "<cmd>:q<CR>") -- "Espacio + q" cierra el documento
 ---------- ÁROL DE ARCHIVOS ----------
 map("n", "<C-tab>", "<cmd>:bnext<CR>") -- va al buffer siguiente
 map("n", "<C-s-tab>", "<cmd>:bprevious<CR>") -- va al buffer anterior
-map("n", "<leader>bd", "<cmd>:bdelete<CR>") -- elimina buffer actual
 
 ---------- PYTHON / PYTEST ----------
 map("n", "<leader>tf", "<cmd>term pytest % -q<CR>") -- test del archivo actual
