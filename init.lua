@@ -11,7 +11,19 @@ opt.expandtab = true
 vim.cmd([[filetype plugin on]])
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
+    pattern = {
+        "lua",
+        "python",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "scss",
+        "less",
+        "json",
+        "yaml",
+        "markdown",
+    },
     callback = function()
         vim.opt_local.tabstop = 4
         vim.opt_local.shiftwidth = 4
@@ -36,5 +48,18 @@ vim.api.nvim_create_autocmd("User", {
             lazy.load({ plugins = { "nvim-lspconfig", "mason-lspconfig.nvim" } })
         end
         pcall(require, "config.lsp")
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "git",
+        "fugitive",
+        "lspinfo",
+        "help",
+    },
+    callback = function(event)
+        vim.bo[event.buf].buflisted = false
+        vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
     end,
 })
