@@ -23,7 +23,7 @@ return {
     },
     {
         "zbirenbaum/copilot.lua",
-        enabled = true,
+        enabled = false,
     },
     {
         "NickvanDyke/opencode.nvim",
