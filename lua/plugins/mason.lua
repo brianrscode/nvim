@@ -14,6 +14,7 @@ return {
             ensure_installed = {
                 "pyright", -- Python
                 "ruff", -- Python lint/analysis server
+                "mypy", -- Python type checker
                 "html", -- HTML
                 "cssls", -- CSS
                 "jsonls", -- JSON
