@@ -32,7 +32,7 @@ return {
                 "shellcheck", -- Shell linter
                 "shfmt", -- Shell formatter
                 "ruff", -- linter / formatter for Python
-                "mypy", -- Python type checker
+                -- "mypy", -- Python type checker
                 "debugpy", -- Python debugger
                 "djlint", -- Django template linter/formatter
                 "prettier", -- general formatter for HTML/CSS/JS
