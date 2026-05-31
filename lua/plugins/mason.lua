@@ -14,7 +14,6 @@ return {
             ensure_installed = {
                 "pyright", -- Python
                 "ruff", -- Python lint/analysis server
-                "mypy", -- Python type checker
                 "html", -- HTML
                 "cssls", -- CSS
                 "jsonls", -- JSON
@@ -33,6 +32,7 @@ return {
                 "shellcheck", -- Shell linter
                 "shfmt", -- Shell formatter
                 "ruff", -- linter / formatter for Python
+                "mypy", -- Python type checker
                 "debugpy", -- Python debugger
                 "djlint", -- Django template linter/formatter
                 "prettier", -- general formatter for HTML/CSS/JS
