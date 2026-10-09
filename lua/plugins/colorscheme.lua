@@ -44,14 +44,4 @@ return {
             vim.cmd([[colorscheme catppuccin-mocha]])
         end,
     },
-    { "Shatur/neovim-ayu", priority = 1001 },
-    { "folke/tokyonight.nvim", priority = 1002 },
-    { "lunarvim/horizon.nvim", priority = 1003 },
-    { "Mofiqul/dracula.nvim", priority = 1004 },
-
-    -- Configuración del tema predeterminado en LazyVim
-    -- {
-    --     "LazyVim/LazyVim",
-    --     opts = { colorscheme = "ayu-dark" },
-    -- },
 }
